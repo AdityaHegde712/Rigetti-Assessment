@@ -1,6 +1,6 @@
 # Rigetti — Surface Defect Classifier
 
-EfficientNet-B0 image classifier for industrial metal surface defects
+Mobilenet_V3 image classifier for industrial metal surface defects
 (Crack · Hole · Normal · Rust · Scratch).
 
 ---
@@ -127,8 +127,8 @@ All settings live in `ml/config.py` (`Config` dataclass).
 
 ## Model
 
-- **Architecture**: EfficientNet-B0 (ImageNet pre-trained)
-- **Head**: replaced with `nn.Linear(1280 → 5)`
+- **Architecture**: MobileNet_V3_Small (ImageNet pre-trained)
+- **Head**: Adjusted for 5 classes.
 - **Optimiser**: Adam, lr=0.001
 - **Scheduler**: CosineAnnealingLR
 - **Augmentation**: random flips, colour jitter (train only)
