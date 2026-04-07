@@ -1,0 +1,39 @@
+version: "3.9"
+
+# 
+# docker-compose.yml
+#
+# Two services share the same image:
+#   train  — runs the full training pipeline
+#   infer  — runs inference on the most recent (or specified) checkpoint
+#
+# Dataset and run artefacts are bind-mounted from the host so they persist
+# across container restarts and are accessible on the host for inspection.
+#
+# Usage:
+#   docker compose up train          # train from scratch
+#   docker compose up infer          # evaluate the latest run
+# 
+
+x-app-base: &app-base
+  build: .
+  environment:
+    PYTHONUNBUFFERED: "1"
+  volumes:
+    # Dataset (read-write so relative paths resolve the same as on the host)
+    - ./dataset:/app/dataset
+    # Runs directory — checkpoints, metrics, predictions written here
+    - ./ml/runs:/app/ml/runs
+    # predictions.csv at project root (written by test pipeline)
+    - .:/app/host
+  working_dir: /app
+
+services:
+
+  train:
+    <<: *app-base
+    command: python ml/train.py
+
+  infer:
+    <<: *app-base
+    command: python ml/test.py

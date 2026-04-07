@@ -1,0 +1,29 @@
+# Docker build-context exclusions
+# Keeps the build fast by excluding large data and generated artefacts.
+
+# Dataset (volume-mounted at runtime)
+dataset/
+
+# Run artefacts
+ml/runs/
+
+# Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+.git/
+.gitignore
+*.swp

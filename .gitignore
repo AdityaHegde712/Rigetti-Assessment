@@ -1,0 +1,58 @@
+# ── Dataset (DO NOT COMMIT) ───────────────────────────────────────────────────
+dataset/
+*.zip
+*.tar
+*.gz
+*.7z
+
+# ── Training Artefacts (DO NOT COMMIT) ────────────────────────────────────────
+# Checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# ── General Python ────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ── Environment & Tooling ─────────────────────────────────────────────────────
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDES (VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Notebooks
+.ipynb_checkpoints
+
+# OS Specific
+.DS_Store
+Thumbs.db
